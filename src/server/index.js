@@ -1,11 +1,14 @@
 import express from 'express';
-import ssr from './src/ssr';
+import TopPage from '../components/pages/TopPage';
 
 const app = express();
 
 app.listen(3000);
 
+app.use(express.static('dist'));
+
 // Getで飛んできたらssrを返却
 app.get('/', (_, res) => {
-  res.send(ssr());
+  const response = TopPage();
+  res.send(response);
 });
