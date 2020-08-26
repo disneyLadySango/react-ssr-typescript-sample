@@ -6,13 +6,17 @@
         "useBuiltIns": false
       }
     ],
+    "@babel/preset-typescript",
     "@babel/preset-react",
   ],
   "plugins": [
     [
       "module-resolver",
       {
-        "root": ["./src"]
+        "root": ["./src"],
+        "alias": {
+          "components": "./src/components"
+        }
       }
     ]
   ]
