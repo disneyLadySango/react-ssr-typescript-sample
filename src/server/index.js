@@ -1,5 +1,5 @@
 import express from 'express';
-import TopPage from '../components/pages/TopPage';
+import TopPage from 'components/pages/TopPage';
 
 const app = express();
 
