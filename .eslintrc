@@ -1,9 +1,14 @@
-{
-  "extends": [
-      "airbnb",
-      "airbnb/hooks"
-  ],
-  "env": {
-    "browser": true
-  },
-}
+// {
+//   "extends": [
+//       "airbnb",
+//       "airbnb/hooks"
+//   ],
+//   "env": {
+//     "browser": true
+//   },
+//   "settings": {
+//     "import/resolver": {
+//         "babel-module": {}
+//    }
+//   }
+// }

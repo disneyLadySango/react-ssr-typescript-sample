@@ -1,8 +1,8 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import CountUp from '../../organisms/CountUp';
+import CountUp from 'components/organisms/CountUp';
 
-export default function TopPage() {
+const TopPage = () => {
   return (`
     <html>
       <head>
@@ -13,8 +13,10 @@ export default function TopPage() {
         <div id="app">
           ${renderToString(<CountUp />)}
         </div>
-        <script src="./client.js"></script>
+        <script src="http://localhost:8080/client.js"></script>
       </body>
     </html>
   `);
 }
+
+export default TopPage;

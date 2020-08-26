@@ -3,7 +3,8 @@ const path = require('path');
 module.exports = {
   resolve: {
     // 対象にする拡張子の指定
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    modules: [path.resolve(__dirname, 'src'), 'node_modules']
   },
   entry: {
     // エントリーポイントの指定
@@ -19,7 +20,7 @@ module.exports = {
     rules: [
       {
         // 拡張子が.jsか.jsxだった場合に適用するルール
-        test: /\.js(x?)$/,
+        test: /\.(js|jsx|ts|tsx)?$/,
         // node_modulesディレクトリ(Yarnでインストールしたパッケージが入ってる)は除外
         exclude: /node_modules/,
         use: [
@@ -31,22 +32,22 @@ module.exports = {
                 [
                   '@babel/preset-env',
                   {
-                    useBuiltIns: 'usage',
-                    corejs: 3,
+                    targets: {
+                      browsers: ['> 5% in JP']
+                    }
                   },
                 ],
-                [
-                  '@babel/preset-react',
-                  {
-                    useBuiltIns: 'usage',
-                    corejs: 3,
-                  },
-                ],
+                ["@babel/preset-typescript"]
               ],
             },
           },
         ],
       },
+      {
+        test: /\.tsx$/,
+        loader: "ts-loader",
+        include: __dirname
+      }
     ],
   },
 
